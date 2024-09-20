@@ -6,6 +6,7 @@ import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -59,12 +60,14 @@ class MainActivity : ComponentActivity() {
 @Composable
 fun FirstExample(firstName: String, modifier: Modifier = Modifier) {
     val name = remember {mutableStateOf(firstName)}
-    Row(verticalAlignment = Alignment.CenterVertically, modifier = Modifier.padding(all = 5.dp)) {
-        //string output in light gray text color
-        Text(name.value, modifier = Modifier.background(Color.LightGray).padding(8.dp).border(width = 1.dp, color=Color.Red), fontSize = 50.sp)
-        // and a button component (onClick changes the name, this will automatically redraw the screen)
-        Button(onClick = { name.value = "John Ford" }) {
-            Text("Change Name", modifier = Modifier.fillMaxWidth())
+    Column {
+        Row(verticalAlignment = Alignment.CenterVertically, modifier = Modifier.padding(all = 5.dp)) {
+            Text(name.value, modifier = Modifier.background(Color.LightGray).padding(8.dp).border(width = 1.dp, color=Color.Red), fontSize = 30.sp)
+        }
+        Row(verticalAlignment = Alignment.CenterVertically, modifier = Modifier.padding(all = 5.dp)) {
+            Button(onClick = { name.value = "John Ford" }) {
+                Text("Change Name", modifier = Modifier.fillMaxWidth())
+            }
         }
     }
 }
