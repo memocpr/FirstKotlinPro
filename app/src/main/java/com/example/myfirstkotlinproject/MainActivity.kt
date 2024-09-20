@@ -5,8 +5,10 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.background
+import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Button
 import androidx.compose.material3.Scaffold
@@ -19,6 +21,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import com.example.myfirstkotlinproject.ui.theme.MyFirstKotlinProjectTheme
 
 class MainActivity : ComponentActivity() {
@@ -56,14 +59,12 @@ class MainActivity : ComponentActivity() {
 @Composable
 fun FirstExample(firstName: String, modifier: Modifier = Modifier) {
     val name = remember {mutableStateOf(firstName)}
-    Row(verticalAlignment = Alignment.CenterVertically,
-        modifier = Modifier.padding(all = 5.dp)) {
+    Row(verticalAlignment = Alignment.CenterVertically, modifier = Modifier.padding(all = 5.dp)) {
         //string output in light gray text color
-        Text(name.value, modifier = Modifier.background(Color.LightGray))
-
-    // and a button component (onClick changes
-    // the name, this will automatically
-    // redraw the screen)
-    Button(onClick = { name.value = "John Ford" })
-    { Text("Change Name") }
-} }
+        Text(name.value, modifier = Modifier.background(Color.LightGray).padding(8.dp).border(width = 1.dp, color=Color.Red), fontSize = 50.sp)
+        // and a button component (onClick changes the name, this will automatically redraw the screen)
+        Button(onClick = { name.value = "John Ford" }) {
+            Text("Change Name", modifier = Modifier.fillMaxWidth())
+        }
+    }
+}
