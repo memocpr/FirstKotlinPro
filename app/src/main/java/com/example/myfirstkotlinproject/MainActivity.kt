@@ -8,9 +8,11 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.width
 import androidx.compose.material3.Button
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
@@ -63,8 +65,13 @@ fun FirstExample(firstName: String, modifier: Modifier = Modifier) {
     Column {
         Row(verticalAlignment = Alignment.CenterVertically, modifier = Modifier.padding(all = 5.dp)) {
             Text(name.value, modifier = Modifier.background(Color.LightGray).padding(8.dp).border(width = 1.dp, color=Color.Red), fontSize = 30.sp)
+            Spacer(modifier = Modifier.width(16.dp))
+            Button(onClick = { name.value = "John Ford" }) {
+                Text("Change Name", modifier = Modifier.fillMaxWidth())
+            }
         }
         Row(verticalAlignment = Alignment.CenterVertically, modifier = Modifier.padding(all = 5.dp)) {
+            Text(name.value, modifier = Modifier.background(Color.LightGray).padding(8.dp).border(width = 1.dp, color=Color.Red), fontSize = 30.sp)
             Button(onClick = { name.value = "John Ford" }) {
                 Text("Change Name", modifier = Modifier.fillMaxWidth())
             }
