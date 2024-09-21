@@ -76,5 +76,32 @@ fun FirstExample(firstName: String, modifier: Modifier = Modifier) {
                 Text("Change Name", modifier = Modifier.fillMaxWidth())
             }
         }
+        Row {
+            //Note that weight will work in the direction of the
+            //Row / Column
+            Text("Text1", fontSize= 48.sp,
+                color=Color.White,
+                modifier = Modifier.background(Color(0xFF41729f)))
+            Spacer(modifier = Modifier.weight(1.0f))
+            Text("Text2", fontSize= 36.sp,
+                color=Color.White,
+                modifier = Modifier.background(Color(0xFF5885af)))
+            Text("Text3", fontSize= 48.sp,
+                color=Color.White,
+                modifier = Modifier.background(Color(0xFF274472)))
+        }
+        Row {
+            //Note that weight will work in the direction of the
+            //Row / Column
+            Text("Text1", fontSize= 48.sp,
+                color=Color.White,
+                modifier = Modifier.background(Color(0xFF41729f)))
+            Text("Text2", fontSize= 36.sp,
+                color=Color.White,
+                modifier = Modifier.background(Color(0xFF5885af)))
+            Text("Text3", fontSize= 48.sp,
+                color=Color.White,
+                modifier = Modifier.background(Color(0xFF274472)))
+        }
     }
 }
